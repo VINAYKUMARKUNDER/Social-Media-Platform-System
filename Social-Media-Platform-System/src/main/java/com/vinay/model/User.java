@@ -31,23 +31,23 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-    @NotBlank
-    @Size(max = 50)
+//    @NotBlank
+//    @Size(max = 50)
     private String name;
     
-    @NotBlank
-    @Email
+//    @NotBlank
+//    @Email
     private String email;
     
-    @Size(max = 200)
+//    @Size(max = 200)
     private String bio;
     
-    @CreationTimestamp
+//    @CreationTimestamp
     @Column(name = "created_at")
     private LocalDateTime createdAt;
     
-    @UpdateTimestamp
-    @Column(name = "updated_at")
+//    @UpdateTimestamp
+//    @Column(name = "updated_at")
     private LocalDateTime updatedAt;
     
 }
