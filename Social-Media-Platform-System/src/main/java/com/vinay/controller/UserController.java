@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.vinay.Service.UserService;
 import com.vinay.dto.UserDto;
+import com.vinay.dto.UserResponseDto;
 
 @RestController
 @RequestMapping("/users")
@@ -27,21 +28,19 @@ public class UserController {
     
 
     @PostMapping("/")
-    public ResponseEntity<UserDto> createUser(@RequestBody UserDto userDto) {
-        UserDto createdUser = userService.createUser(userDto);
-        return ResponseEntity.status(HttpStatus.CREATED).body(createdUser);
+    public ResponseEntity<UserResponseDto> createUser(@RequestBody UserDto userDto) {
+    	UserResponseDto createdUser = userService.createUser(userDto);
+        return new ResponseEntity<UserResponseDto>(createdUser,HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<UserDto> getUserById(@PathVariable Long id) {
-        UserDto userDto = userService.getUserById(id);
-        return ResponseEntity.ok(userDto);
+    public ResponseEntity<UserResponseDto> getUserById(@PathVariable Long id) {
+        return new ResponseEntity<UserResponseDto>(userService.getUserById(id), HttpStatus.OK);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<UserDto> updateUserById(@PathVariable Long id, @RequestBody UserDto userUpdateDto) {
-        UserDto updatedUser = userService.updateUserById(id, userUpdateDto);
-        return ResponseEntity.ok(updatedUser);
+    public ResponseEntity<UserResponseDto> updateUserById(@PathVariable Long id, @RequestBody UserDto userUpdateDto) {
+        return new ResponseEntity<UserResponseDto>(userService.updateUserById(id, userUpdateDto), HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
@@ -57,9 +56,14 @@ public class UserController {
     }
 
     @GetMapping("/analytics/users/top-active")
-    public ResponseEntity<List<UserDto>> getTopActiveUsers() {
-        List<UserDto> topActiveUsers = userService.getTopActiveUsers();
-        return ResponseEntity.ok(topActiveUsers);
+    public ResponseEntity<List<UserResponseDto>> getTopActiveUsers() {
+        return new ResponseEntity<List<UserResponseDto>>(userService.getTop5ActiveUsers(), HttpStatus.OK);
     }
+    
+    @GetMapping("/")
+    public ResponseEntity<List<UserResponseDto>> getAllUsers() {
+        return new ResponseEntity<List<UserResponseDto>>(userService.getAllUsers(), HttpStatus.OK);
+    }
+    
 }
 

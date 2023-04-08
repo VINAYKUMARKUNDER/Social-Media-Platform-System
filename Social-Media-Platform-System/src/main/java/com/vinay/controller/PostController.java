@@ -73,5 +73,12 @@ public class PostController {
         List<PostDto> topLikedPosts = postService.getTopLikedPosts();
         return ResponseEntity.ok(topLikedPosts);
     }
+    
+    
+    @GetMapping("/")
+    public ResponseEntity<List<PostDto>> getAllPosts() {
+        List<PostDto> topLikedPosts = postService.getAllPosts();
+        return ResponseEntity.ok(topLikedPosts);
+    }
 }
 

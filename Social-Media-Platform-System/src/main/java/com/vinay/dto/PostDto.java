@@ -16,11 +16,11 @@ public class PostDto {
 	
 	 private Long id;
 
-    @NotNull(message = "User ID cannot be null")
+//    @NotNull(message = "User ID cannot be null")
     private Long userId;
 
-    @NotNull(message = "Content cannot be null")
-    @Size(min = 1, max = 300, message = "Content must be between 1 and 300 characters")
+//    @NotNull(message = "Content cannot be null")
+//    @Size(min = 1, max = 300, message = "Content must be between 1 and 300 characters")
     private String content;
     
 }

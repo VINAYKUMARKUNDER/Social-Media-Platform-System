@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.vinay.dto.PostDto;
 import com.vinay.dto.UserDto;
+import com.vinay.dto.UserResponseDto;
 import com.vinay.exception.ResourceNotFoundException;
 import com.vinay.model.Post;
 import com.vinay.model.User;
@@ -26,7 +27,7 @@ public class PostServiceImpl implements PostService {
 
 	@Override
 	public PostDto createPost(PostDto postDto) {
-		UserDto userDto = userService.getUserById(postDto.getUserId());
+		UserResponseDto userDto = userService.getUserById(postDto.getUserId());
 		Post post = modelMapper.map(postDto, Post.class);
 
 		Post savedPost = postRepository.save(post);
@@ -80,13 +81,19 @@ public class PostServiceImpl implements PostService {
 	@Override
 	public List<PostDto> getTopLikedPosts() {
 		List<Post> posts = postRepository.findAll();
-		return posts.stream().map(post-> modelMapper.map(posts, PostDto.class)).collect(Collectors.toList());
+		return posts.stream().map(post-> modelMapper.map(post, PostDto.class)).collect(Collectors.toList());
 	}
 
 	@Override
 	public Long getTotalPosts() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public List<PostDto> getAllPosts() {
+		List<Post> posts = postRepository.findAll();
+		return posts.stream().map(post-> modelMapper.map(post, PostDto.class)).collect(Collectors.toList());
 	}
 
 	

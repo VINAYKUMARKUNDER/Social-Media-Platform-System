@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.vinay.dto.UserDto;
+import com.vinay.dto.UserResponseDto;
 import com.vinay.exception.ResourceNotFoundException;
 import com.vinay.model.User;
 import com.vinay.repository.UserRepository;
@@ -27,28 +28,30 @@ public class UserServiceImpl implements UserService {
    
 
     @Override
-    public UserDto createUser( UserDto userCreateDto) {
+    public UserResponseDto createUser( UserDto userCreateDto) {
         User user = modelMapper.map(userCreateDto, User.class);
+        user.setCreatedAt(LocalDateTime.now());
+        user.setUpdatedAt(LocalDateTime.now());
         User savedUser = userRepository.save(user);
-        return modelMapper.map(savedUser, UserDto.class);
+        return modelMapper.map(savedUser, UserResponseDto.class);
     }
 
     @Override
-    public UserDto getUserById(Long id) {
+    public UserResponseDto getUserById(Long id) {
         User user = userRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("User not found with id: " + id));
-        return modelMapper.map(user, UserDto.class);
+        return modelMapper.map(user, UserResponseDto.class);
     }
 
     @Override
-    public UserDto updateUserById(Long id, UserDto userUpdateDto) {
+    public UserResponseDto updateUserById(Long id, UserDto userUpdateDto) {
         User user = userRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("User not found with id: " + id));
         user.setName(userUpdateDto.getName());
         user.setBio(userUpdateDto.getBio());
         user.setUpdatedAt(LocalDateTime.now());
         User updatedUser = userRepository.save(user);
-        return modelMapper.map(updatedUser, UserDto.class);
+        return modelMapper.map(updatedUser, UserResponseDto.class);
     }
 
     @Override
@@ -61,9 +64,9 @@ public class UserServiceImpl implements UserService {
     
 
     @Override
-    public List<UserDto> getTopActiveUsers() {
-        List<User> users = userRepository.findAll();
-        List<UserDto> userDtos = users.stream().map(user-> modelMapper.map(users, UserDto.class)).collect(Collectors.toList());
+    public List<UserResponseDto> getTop5ActiveUsers() {
+        List<User> users = userRepository.findTop5OrderByPostCountDesc();
+        List<UserResponseDto> userDtos = users.stream().map(user-> modelMapper.map(user, UserResponseDto.class)).collect(Collectors.toList());
         return userDtos;
     }
 
@@ -71,6 +74,13 @@ public class UserServiceImpl implements UserService {
 	public Long getTotalUserCount() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public List<UserResponseDto> getAllUsers() {
+		 List<User> users = userRepository.findAll();
+	        List<UserResponseDto> userDtos = users.stream().map(user-> modelMapper.map(user, UserResponseDto.class)).collect(Collectors.toList());
+	        return userDtos;
 	}
 
    

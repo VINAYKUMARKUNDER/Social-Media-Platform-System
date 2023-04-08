@@ -3,6 +3,7 @@ package com.vinay.Service;
 import java.util.List;
 
 import com.vinay.dto.UserDto;
+import com.vinay.dto.UserResponseDto;
 
 /**
  * Service interface for managing users.
@@ -16,7 +17,7 @@ public interface UserService {
      * @return The created user entity.
      * @throws BadRequestException if the input data is invalid.
      */
-    UserDto createUser(UserDto userDto);
+    UserResponseDto createUser(UserDto userDto);
 
     /**
      * Retrieves a user by ID.
@@ -25,7 +26,7 @@ public interface UserService {
      * @return The retrieved user entity.
      * @throws NotFoundException if the user is not found.
      */
-    UserDto getUserById(Long id);
+    UserResponseDto getUserById(Long id);
 
     /**
      * Updates a user's name or bio by ID.
@@ -36,7 +37,7 @@ public interface UserService {
      * @throws NotFoundException if the user is not found.
      * @throws BadRequestException if the input data is invalid.
      */
-    UserDto updateUserById(Long id, UserDto userUpdateDto);
+    UserResponseDto updateUserById(Long id, UserDto userUpdateDto);
 
     /**
      * Deletes a user by ID.
@@ -58,7 +59,15 @@ public interface UserService {
      * 
      * @return A list of the top 5 most active users.
      */
-    List<UserDto> getTopActiveUsers();
+    List<UserResponseDto> getTop5ActiveUsers();
+    
+    
+    /**
+     * Retrieves total users, in the database.
+     * 
+     * @return A list of all users.
+     */
+    List<UserResponseDto> getAllUsers();
 }
 
 
