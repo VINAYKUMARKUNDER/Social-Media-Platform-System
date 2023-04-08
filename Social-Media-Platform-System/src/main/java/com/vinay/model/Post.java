@@ -16,7 +16,6 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -40,7 +39,7 @@ public class Post {
     private User user;
     
     @NotBlank
-    @Size(max = 300)
+    @Column(columnDefinition = "TEXT")
     private String content;
     
     @CreationTimestamp
