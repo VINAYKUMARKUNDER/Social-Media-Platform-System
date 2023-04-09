@@ -21,7 +21,7 @@ import com.vinay.dto.UserResponseDto;
 
 @RestController
 //@RequestMapping("/users")
-@CrossOrigin(origins = "http://localhost:5500")
+@CrossOrigin(origins = "https://social-media-platform-system-production.up.railway.app/")
 public class UserController {
     
 	@Autowired
