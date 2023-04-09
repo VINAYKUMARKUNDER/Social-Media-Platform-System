@@ -36,7 +36,7 @@ function appendData(data) {
 
     let actionsCell = document.createElement("td");
     let editBtn = document.createElement("button");
-    editBtn.classList.add("btn", "btn-primary");
+    editBtn.classList.add("btn", "btn-outline-primary");
     editBtn.innerText = "Edit";
 
     editBtn.addEventListener("click",()=>{

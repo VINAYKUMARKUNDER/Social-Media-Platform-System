@@ -41,9 +41,9 @@ let updateUser = () => {
     body: JSON.stringify(user),
   })
     .then((response) => response.json())
-    .then((updatedUser) => {
-        alert(`${updatedUser.name}'s data update successfully!!`)
-      window.location.href = `userProfile.html?id=${updatedUser.id}`;
+    .then((data) => {
+        alert(`${data.name}'s data update successfully!!`);
+        window.location.href = `userProfile.html?id=${data.id}`;
     })
     .catch((error) => console.error(error));
 };

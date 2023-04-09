@@ -9,28 +9,28 @@ function navbar(){
 		<div class="collapse navbar-collapse" id="navbarNav">
 			<ul class="navbar-nav">
 				<li class="nav-item">
-					<a class="nav-link" href="index.html">Home</a>
+					<a class="nav-link text-white" href="index.html">Home</a>
 				</li>
                                 
                 <li class="nav-item"> 
-                 <a class="nav-link" href="createNewUser.html">New User</a>
+                 <a class="nav-link text-white" href="createNewUser.html">New User</a>
                  </li>
 
                 <li class="nav-item">
-                <a class="nav-link" href="createNewPost.html">New Post</a>
+                <a class="nav-link text-white" href="createNewPost.html">New Post</a>
                 </li>
 
 				<li class="nav-item">
-					<a class="nav-link" href="User.html">User</a>
+					<a class="nav-link text-white" href="User.html">User</a>
 				</li>
                 <li class="nav-item">
-                    <a class="nav-link" href="post.html">Post</a>
+                    <a class="nav-link text-white" href="post.html">Post</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="UserAnalytics.html">User Analytics</a>
+                    <a class="nav-link text-white" href="UserAnalytics.html">User Analytics</a>
                 </li>
 				<li class="nav-item">
-					<a class="nav-link" href="PostAnalytics.html">Post Analytics</a>
+					<a class="nav-link text-white" href="PostAnalytics.html">Post Analytics</a>
 				</li>
 			</ul>
 		</div>

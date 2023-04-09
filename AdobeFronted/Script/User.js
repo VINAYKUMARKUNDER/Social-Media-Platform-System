@@ -12,7 +12,7 @@ let deleteUser = (userId) => {
       throw new Error('Network response was not ok');
     }
     // Delete successful, do something here if necessary
-    console.log('User deleted successfully');
+    else console.log('User deleted successfully');
   })
   .catch(error => {
     console.error('There was a problem with the fetch operation:', error);
@@ -41,9 +41,15 @@ let deleteUser = (userId) => {
         emailCell.textContent = user.email;
         row.appendChild(emailCell);
 
+        const bioCell = document.createElement("td");
+       
+        bioCell.textContent = user.bio;
+        row.appendChild(bioCell);
+
         const actionsCell = document.createElement("td");
         const viewBtn = document.createElement("button");
         viewBtn.textContent = "View";
+        viewBtn.classList.add("btn", "btn-outline-primary");
         viewBtn.addEventListener("click", () => {
           window.location.href = `userProfile.html?id=${user.id}`;
         });
@@ -51,6 +57,7 @@ let deleteUser = (userId) => {
         const deleteCell = document.createElement("td");
         const dltBtn = document.createElement("button");
         dltBtn.textContent = "Delete";
+        dltBtn.classList.add("btn", "btn-outline-danger");
         dltBtn.addEventListener("click", (id) => {
           deleteUser(id);
           alert("User delete successfully");
