@@ -27,7 +27,6 @@ import lombok.ToString;
 @Setter
 @EqualsAndHashCode
 @ToString
-//@NamedEntityGraph(name = "User.post", attributeNodes = @NamedAttributeNode("Post"))
 public class User {
     
     @Id

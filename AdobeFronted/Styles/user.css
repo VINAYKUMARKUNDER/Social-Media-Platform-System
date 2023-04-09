@@ -1,0 +1,21 @@
+body {
+  padding-top: 70px;
+}
+.navbar {
+  height: 70px;
+  background-color: #333;
+  color: #fff;
+}
+.navbar a {
+  color: #fff;
+}
+.container {
+  margin-top: 20px;
+}
+
+.col-sm-4 {
+  padding: 10px;
+}
+button {
+  margin-top: 10px;
+}
