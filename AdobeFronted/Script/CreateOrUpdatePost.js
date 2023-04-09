@@ -1,19 +1,44 @@
 
+const searchParams = new URLSearchParams(window.location.search);
+const postId = searchParams.get("id");
+const userId = searchParams.get("userId");
+const content = searchParams.get("content");
+
+
+if (userId !== null && content !== null) setTimeout(setValue, 1000);
+
+function setValue() {
+    const setUser = document.getElementById("userId");
+    setUser.value = userId;
+    setUser.disabled = true;
+    document.getElementById("content").value = content;
+  }
 
 
 
 let createOrUpdatePost=()=>{
+    
+    if (userId !== null && content !== null){
+     
+        const post={
+            userId:document.getElementById('userId').value,
+            content: document.getElementById('content').value
+
+        }
+        updatePost(postId,post);
+    }
+    else createPost();
 
 }
 
 
 
-let createPost = (title, content) => {
+let createPost = () => {
   const url = "http://localhost:8080/posts/"; // replace with your API endpoint
 
   const data = {
-    userId:1,
-    content: content,
+    userId: document.getElementById('userId').value,
+    content: document.getElementById('content').value,
   };
 
   const options = {
@@ -28,44 +53,36 @@ let createPost = (title, content) => {
     .then((response) => {
       if (response.ok) {
         // handle successful response
+        alert("New post created!");
         console.log("New post created!");
       } else {
         // handle error response
-        console.error("Error creating new post");
+        alert("Error creating new post");
       }
     })
     .catch((error) => {
       // handle fetch error
-      console.error("Fetch error:", error);
+      alert("Fetch error:", error);
     });
 };
 
 
 
 
-let updatePost=(postId, updatedPostData)=> {
+// Update Post
+let updatePost=(postId, post)=> {
+    alert('function call')
     fetch(`http://localhost:8080/posts/${postId}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(updatedPostData)
+      body: JSON.stringify(post)
     })
-    .then(response => {
-      if (response.ok) {
-        return response.json();
-      } else {
-        throw new Error('Error updating post');
-      }
-    })
+    .then(response => response.json())
     .then(data => {
-      console.log('Updated post:', data);
-    })
-    .catch(error => {
-      console.error('Error updating post:', error);
-    });
+
+        alert(`${data.id} update successfully!!`)})
+    .catch(error => alert(`Catch error!!`));
   }
   
-
-
-

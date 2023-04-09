@@ -2,6 +2,7 @@
 
 // delete user data
 let deleteUser = (userId) => {
+  // console.log(userId)
   const url = `http://localhost:8080/users/${userId}`;
 
   fetch(url, {
@@ -12,10 +13,10 @@ let deleteUser = (userId) => {
       throw new Error('Network response was not ok');
     }
     // Delete successful, do something here if necessary
-    else console.log('User deleted successfully');
+    else alert('User deleted successfully');
   })
   .catch(error => {
-    console.error('There was a problem with the fetch operation:', error);
+    alert('User is created posts first deleted all user post', error);
   });
 }
 
@@ -58,9 +59,9 @@ let deleteUser = (userId) => {
         const dltBtn = document.createElement("button");
         dltBtn.textContent = "Delete";
         dltBtn.classList.add("btn", "btn-outline-danger");
-        dltBtn.addEventListener("click", (id) => {
-          deleteUser(id);
-          alert("User delete successfully");
+        dltBtn.addEventListener("click", () => {
+          deleteUser(user.id);
+          // alert("User delete successfully");
         });
         actionsCell.appendChild(viewBtn);
         deleteCell.appendChild(dltBtn);
