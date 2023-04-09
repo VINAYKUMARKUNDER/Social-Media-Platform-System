@@ -6,7 +6,7 @@
 const userList = document.getElementById("user-list");
 
 // Fetch user data
-fetch('http://localhost:8080/users')
+fetch('http://localhost:8080/users/')
   .then(response => response.json())
   .then(users => {
     // Loop through the user data and create a table row for each user
@@ -40,3 +40,7 @@ fetch('http://localhost:8080/users')
     });
   })
   .catch(error => console.error(error));
+
+
+
+  
