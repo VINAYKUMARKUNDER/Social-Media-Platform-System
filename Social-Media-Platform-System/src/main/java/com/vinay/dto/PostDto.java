@@ -23,4 +23,6 @@ public class PostDto {
 //    @Size(min = 1, max = 300, message = "Content must be between 1 and 300 characters")
     private String content;
     
+    private Integer likes = 0;
+    
 }
