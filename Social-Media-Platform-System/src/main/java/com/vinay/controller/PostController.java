@@ -20,7 +20,7 @@ import com.vinay.dto.PostDto;
 
 @RestController
 @RequestMapping("/posts")
-@CrossOrigin(origins = "http://localhost:5500")
+@CrossOrigin(origins = "https://social-media-platform-system-production.up.railway.app/")
 public class PostController {
     
 	@Autowired
