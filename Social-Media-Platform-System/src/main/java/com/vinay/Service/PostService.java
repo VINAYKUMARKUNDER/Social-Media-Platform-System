@@ -73,5 +73,13 @@ public interface PostService {
      * @return The top 5 most liked posts.
      */
     List<PostDto> getTopLikedPosts();
+    
+    
+    /**
+     * Retrieves all posts.
+     *
+     * @return The all  posts.
+     */
+    List<PostDto> getAllPosts();
 }
 

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="Script/CreateOrUpdateUser.js"></script>
+    <title>Document</title>
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav id="navbar"></nav>
+
+
+
+    <div class="container">
+        <h1>User Form</h1>
+        <form id="user-form">
+          <div class="form-group">
+            <label for="name-input">Name:</label>
+            <input type="text" class="form-control" id="name" required>
+          </div>
+          <div class="form-group">
+            <label for="email-input">Email:</label>
+            <input type="email" class="form-control" id="email" required>
+          </div>
+          <div class="form-group">
+            <label for="bio-input">Bio:</label>
+            <textarea class="form-control" id="bio" rows="3"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" onclick="postOrUpdate()">Save</button>
+        </form>
+      </div>
+      <script type="module">
+        import nav from "./components/navbar.js";
+        let n = (document.getElementById("navbar").innerHTML = nav);
+      </script>
+</body>
+</html>

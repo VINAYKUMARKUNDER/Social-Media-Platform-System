@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home Page</title>
+	<!-- Include Bootstrap CSS here -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+	<!-- Navigation Bar -->
+	<nav id="navbar"></nav>
+
+	<!-- Page Content -->
+	<div class="container mt-5">
+		<h1>Welcome to My Social Media Platform</h1>
+		<p>This is a simple social media platform created using Vanilla JS, Spring Boot, and MySQL.</p>
+		<p>Use the navigation bar to access different parts of the application.</p>
+	</div>
+
+	<!-- Include Bootstrap JS here -->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <script type="module">
+		import nav from "./components/navbar.js";
+		let n = (document.getElementById("navbar").innerHTML = nav);
+	  </script>
+</body>
+</html>

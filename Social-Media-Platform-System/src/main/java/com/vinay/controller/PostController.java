@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,6 +20,7 @@ import com.vinay.dto.PostDto;
 
 @RestController
 @RequestMapping("/posts")
+@CrossOrigin(origins = "http://localhost:5500")
 public class PostController {
     
 	@Autowired
@@ -41,7 +43,7 @@ public class PostController {
     @PutMapping("/{id}")
     public ResponseEntity<PostDto> updatePostById(@PathVariable Long id,  @RequestBody PostDto postUpdateDto) {
         PostDto updatedPost = postService.updatePost(id, postUpdateDto);
-        return ResponseEntity.ok(updatedPost);
+        return new ResponseEntity<PostDto>(updatedPost,HttpStatus.ACCEPTED);
     }
 
     @DeleteMapping("/{id}")
@@ -71,6 +73,13 @@ public class PostController {
     @GetMapping("/analytics/posts/top-liked")
     public ResponseEntity<List<PostDto>> getTopLikedPosts() {
         List<PostDto> topLikedPosts = postService.getTopLikedPosts();
+        return ResponseEntity.ok(topLikedPosts);
+    }
+    
+    
+    @GetMapping("/")
+    public ResponseEntity<List<PostDto>> getAllPosts() {
+        List<PostDto> topLikedPosts = postService.getAllPosts();
         return ResponseEntity.ok(topLikedPosts);
     }
 }

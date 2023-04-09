@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,9 +17,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.vinay.Service.UserService;
 import com.vinay.dto.UserDto;
+import com.vinay.dto.UserResponseDto;
 
 @RestController
-@RequestMapping("/users")
+//@RequestMapping("/users")
+@CrossOrigin(origins = "http://localhost:5500")
 public class UserController {
     
 	@Autowired
@@ -26,40 +29,45 @@ public class UserController {
 
     
 
-    @PostMapping("/")
-    public ResponseEntity<UserDto> createUser(@RequestBody UserDto userDto) {
-        UserDto createdUser = userService.createUser(userDto);
-        return ResponseEntity.status(HttpStatus.CREATED).body(createdUser);
+    @PostMapping("/users/")
+    public ResponseEntity<UserResponseDto> createUser(@RequestBody UserDto userDto) {
+    	UserResponseDto createdUser = userService.createUser(userDto);
+        return new ResponseEntity<UserResponseDto>(createdUser,HttpStatus.CREATED);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<UserDto> getUserById(@PathVariable Long id) {
-        UserDto userDto = userService.getUserById(id);
-        return ResponseEntity.ok(userDto);
+    @GetMapping("/users/{id}")
+    public ResponseEntity<UserResponseDto> getUserById(@PathVariable Long id) {
+        return new ResponseEntity<UserResponseDto>(userService.getUserById(id), HttpStatus.OK);
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<UserDto> updateUserById(@PathVariable Long id, @RequestBody UserDto userUpdateDto) {
-        UserDto updatedUser = userService.updateUserById(id, userUpdateDto);
-        return ResponseEntity.ok(updatedUser);
+    @PutMapping("/users/{id}")
+    public ResponseEntity<UserResponseDto> updateUserById(@PathVariable Long id, @RequestBody UserDto userUpdateDto) {
+        return new ResponseEntity<UserResponseDto>(userService.updateUserById(id, userUpdateDto), HttpStatus.OK);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/users/{id}")
     public ResponseEntity<Void> deleteUserById(@PathVariable Long id) {
         userService.deleteUserById(id);
         return ResponseEntity.noContent().build();
     }
 
-    @GetMapping("/analytics/users")
-    public ResponseEntity<Long> getTotalUsers() {
-//        Long totalUsers = userService.getTotalUsers();
-        return ResponseEntity.ok(222l);
-    }
+    
 
     @GetMapping("/analytics/users/top-active")
-    public ResponseEntity<List<UserDto>> getTopActiveUsers() {
-        List<UserDto> topActiveUsers = userService.getTopActiveUsers();
-        return ResponseEntity.ok(topActiveUsers);
+    public ResponseEntity<List<UserResponseDto>> getTopActiveUsers() {
+        return new ResponseEntity<List<UserResponseDto>>(userService.getTop5ActiveUsers(), HttpStatus.OK);
     }
+    
+    @GetMapping("/users/")
+    public ResponseEntity<List<UserResponseDto>> getAllUsers() {
+        return new ResponseEntity<List<UserResponseDto>>(userService.getAllUsers(), HttpStatus.OK);
+    }
+    
+    
+    @GetMapping("/analytics/users")
+    public ResponseEntity<Long> getTotalNumberOfUser(){
+    	return new ResponseEntity<Long>(userService.getTotalUserCount(), HttpStatus.OK);
+    }
+    
 }
 

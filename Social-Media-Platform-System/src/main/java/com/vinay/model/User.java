@@ -10,6 +10,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.NamedAttributeNode;
+import jakarta.persistence.NamedEntityGraph;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -31,15 +33,12 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-//    @NotBlank
-//    @Size(max = 50)
+
     private String name;
-    
-//    @NotBlank
-//    @Email
+
+    @Column(unique = true)
     private String email;
     
-//    @Size(max = 200)
     private String bio;
     
 //    @CreationTimestamp
@@ -47,7 +46,7 @@ public class User {
     private LocalDateTime createdAt;
     
 //    @UpdateTimestamp
-//    @Column(name = "updated_at")
+    @Column(name = "updated_at")
     private LocalDateTime updatedAt;
     
 }

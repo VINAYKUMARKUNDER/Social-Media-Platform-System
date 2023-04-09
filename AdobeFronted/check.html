@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>User Management</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.6.0/css/bootstrap.min.css">
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h1>User Management</h1>
+      <div class="row mt-3">
+        <div class="col">
+          <button class="btn btn-primary" onclick="getAllUsers()">Get All Users</button>
+        </div>
+        <div class="col">
+          <form class="form-inline">
+            <div class="form-group">
+              <label for="userId">User ID:</label>
+              <input type="text" class="form-control ml-2 mr-2" id="userId">
+            </div>
+            <button type="submit" class="btn btn-primary" onclick="getUser()">Get User</button>
+          </form>
+        </div>
+      </div>
+      <div class="row mt-3">
+        <div class="col">
+          <button class="btn btn-success" onclick="createUser()">Create User</button>
+        </div>
+        <div class="col">
+          <form class="form-inline">
+            <div class="form-group">
+              <label for="updateUserId">User ID:</label>
+              <input type="text" class="form-control ml-2 mr-2" id="updateUserId">
+            </div>
+            <button type="submit" class="btn btn-success" onclick="updateUser()">Update User</button>
+          </form>
+        </div>
+        <div class="col">
+          <form class="form-inline">
+            <div class="form-group">
+              <label for="deleteUserId">User ID:</label>
+              <input type="text" class="form-control ml-2 mr-2" id="deleteUserId">
+            </div>
+            <button type="submit" class="btn btn-danger" onclick="deleteUser()">Delete User</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.6.0/js/bootstrap.min.js"></script>
+    <script>
+      function getAllUsers() {
+        // TODO: implement function to get all users
+      }
+      
+      function getUser() {
+        const userId = $('#userId').val();
+        // TODO: implement function to get user with specified ID
+      }
+      
+      function createUser() {
+        // TODO: implement function to create a new user
+      }
+      
+      function updateUser() {
+        const userId = $('#updateUserId').val();
+        // TODO: implement function to update user with specified ID
+      }
+      
+      function deleteUser() {
+        const userId = $('#deleteUserId').val();
+        // TODO: implement function to delete user with specified ID
+      }
+    </script>
+  </body>
+</html>
