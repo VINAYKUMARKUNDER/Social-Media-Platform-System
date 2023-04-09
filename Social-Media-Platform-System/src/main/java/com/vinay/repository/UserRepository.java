@@ -13,4 +13,7 @@ import com.vinay.model.User;
 public interface UserRepository extends JpaRepository<User, Long> {
     @Query("SELECT u FROM User u LEFT JOIN Post p GROUP BY u.id ORDER BY COUNT(p) ASC LIMIT 5")
     List<User> findTop5OrderByPostCountDesc();
+    
+    @Query("SELECT count(*) from User")
+    Long totalUser();
 }

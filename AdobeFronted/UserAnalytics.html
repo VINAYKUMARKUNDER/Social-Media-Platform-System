@@ -29,21 +29,41 @@
                 <p class="card-text" id="totalUsers"></p>
               </div>
             </div>
-            <div class="card mb-4">
-              <div class="card-body">
-                <h5 class="card-title">Top Active Users</h5>
-                <ul class="list-group" id="topActiveUsers"></ul>
-              </div>
-            </div>
+
+            
           </div>
         </div>
+
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title">Top Active Users</h5>
+        
+        <table class="table">
+          <thead>
+              <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Bio</th>
+                  <th>Details</th>
+                  <th>Website</th>
+              </tr>
+          </thead>
+          <tbody id="user-list" >
+          </tbody>
+      </table>
+          
+    </div>
+  </div>
       </div>
       
 
-    <script src="Scripts/userAnltics.js"></script>
+    <script src="Script/userAnalytics.js"></script>
     <script type="module">
       import nav from "./components/navbar.js";
       let n = (document.getElementById("navbar").innerHTML = nav);
     </script>
+
+
 </body>
 </html>

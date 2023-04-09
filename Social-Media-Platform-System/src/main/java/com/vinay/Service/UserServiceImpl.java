@@ -72,8 +72,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public Long getTotalUserCount() {
-		// TODO Auto-generated method stub
-		return null;
+		return userRepository.totalUser();
 	}
 
 	@Override
