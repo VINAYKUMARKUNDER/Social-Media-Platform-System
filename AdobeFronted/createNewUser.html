@@ -15,40 +15,9 @@
 <body>
 
 <!-- Navigation Bar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">My Social Media Platform</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-            <li class="nav-item active">
-                <a class="nav-link" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="Users.html">Users</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="createNewUser.html">Register</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="createNewPost.html">create new post</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="post.html">Posts</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="userAnlatics.html">User Analytics</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="postAnlitecs.html">Post Analytics</a>
-            </li>
-        </ul>
-    </div>
-</nav>
+<nav id="navbar"></nav>
 
-<input type="text" id="myInput">
-<button onclick="setValue()">Set Value</button>
+
 
     <div class="container">
         <h1>User Form</h1>
@@ -68,6 +37,9 @@
           <button type="submit" class="btn btn-primary" onclick="postOrUpdate()">Save</button>
         </form>
       </div>
-      
+      <script type="module">
+        import nav from "./components/navbar.js";
+        let n = (document.getElementById("navbar").innerHTML = nav);
+      </script>
 </body>
 </html>

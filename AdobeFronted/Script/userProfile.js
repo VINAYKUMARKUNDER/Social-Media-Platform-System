@@ -1,12 +1,6 @@
 const userList = document.getElementById("user-list");
-
-// Get the query string from the URL
 const queryString = window.location.search;
-
-// Create a new URLSearchParams object using the query string
 const queryParams = new URLSearchParams(queryString);
-
-// Retrieve the value of the "id" parameter
 const userId = queryParams.get("id");
 
 var userData;
@@ -34,7 +28,7 @@ fetch(`http://localhost:8080/users/${userId}`)
   })
   .catch((error) => console.error(error));
 
-let updatePage = () => {
+  let updateUser = () => {
   const user = {
     id:  userData.id,
     name: userData.name,
@@ -46,14 +40,3 @@ let updatePage = () => {
 
   window.location.href = `createNewUser.html?${queryString}`;
 };
-
-
-
-
-
-
-
-
-
-
-

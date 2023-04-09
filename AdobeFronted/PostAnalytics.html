@@ -9,34 +9,29 @@
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script src="Script/ind.js"></script>
+    <script src="Scripts/postAnlitcs.js"></script>
     <title>Document</title>
 </head>
 <body>
 
 <!-- Navigation Bar -->
-
 <nav id="navbar"></nav>
 
-<!-- Main content -->
-<div class="container mt-5">
-    <h1>Create New Post</h1>
-    <form id="newPostForm">
-        <div class="form-group">
-            <label for="titleInput">Title</label>
-            <input type="text" class="form-control" id="titleInput" name="title">
-        </div>
-        <div class="form-group">
-            <label for="contentInput">Content</label>
-            <textarea class="form-control" id="contentInput" name="content"></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Create Post</button>
-    </form>
-</div>
-<script type="module">
+<div class="container">
+    <h1>Post Analytics</h1>
+    <div class="row">
+      <div class="col-md-6">
+        <h2>Total Posts: <span id="totalPosts"></span></h2>
+        <ul id="topLikedPosts">
+          <li>Loading...</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <script type="module">
     import nav from "./components/navbar.js";
     let n = (document.getElementById("navbar").innerHTML = nav);
   </script>
-      
 </body>
 </html>

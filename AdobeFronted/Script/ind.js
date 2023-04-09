@@ -84,3 +84,30 @@ let update = (postId) => {
     })
     .catch((error) => console.error(error));
 };
+
+
+
+
+// create post method
+
+function createPost(title, content) {
+  const url = 'http://example.com/posts/';
+  const data = { title, content };
+
+  fetch(url, {
+    method: 'POST',
+    body: JSON.stringify(data),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+  .then(response => response.json())
+  .then(data => {
+    console.log('Success:', data);
+    // do something with the newly created post data
+  })
+  .catch((error) => {
+    console.error('Error:', error);
+  });
+}
+
