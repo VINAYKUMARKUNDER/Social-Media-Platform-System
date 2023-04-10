@@ -80,7 +80,7 @@ public class PostServiceImpl implements PostService {
 
 	@Override
 	public List<PostDto> getTopLikedPosts() {
-		List<Post> posts = postRepository.findAll();
+		List<Post> posts = postRepository.getTo5LikesPosts();
 		return posts.stream().map(post-> modelMapper.map(post, PostDto.class)).collect(Collectors.toList());
 	}
 
