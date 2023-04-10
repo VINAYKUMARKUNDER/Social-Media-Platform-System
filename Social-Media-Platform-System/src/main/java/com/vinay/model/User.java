@@ -41,11 +41,11 @@ public class User {
     
     private String bio;
     
-//    @CreationTimestamp
+    @CreationTimestamp
     @Column(name = "created_at")
     private LocalDateTime createdAt;
     
-//    @UpdateTimestamp
+    @UpdateTimestamp
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
     
