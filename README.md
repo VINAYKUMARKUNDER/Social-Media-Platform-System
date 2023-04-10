@@ -17,7 +17,7 @@
 This project is a web application that allows users to create and manage posts. It has been built using Java Spring Boot on the backend and HTML, CSS, and JavaScript on the frontend.
 
 ## Features
-- User authentication and authorization
+- User registerd himdelf
 - Create, edit, and delete posts
 - Like and unlike posts
 - View a list of all posts
