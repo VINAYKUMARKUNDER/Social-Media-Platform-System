@@ -1,4 +1,5 @@
 # Social-Media-Platform-System
+#  <a href="https://github.com/VINAYKUMARKUNDER/JavaScript-Code/tree/main/AdobeFronted">Fronted Repo link</a>
 
 ## Deployment
 
@@ -22,14 +23,45 @@ This project is a web application that allows users to create and manage posts. 
 - View a list of all posts
 - Search for specific posts
 - Responsive design for optimal viewing on desktop and - mobile devices
+
+
 ## Technologies Used
-- Java 
+- Java
 - Spring Boot
-- MySQL database
+- MySQL
+- Hibernate
+- Model Mapper
+- Validation
 - HTML
 - CSS
 - JavaScript
 - Bootstrap
+
+## end Point
+###  <a href="https://social-media-platform-system-production.up.railway.app/posts/">API Endpoints Link</a>
+###  <a href="https://adobe-fronted-vinaykumarkunder.vercel.app/">Fronted Live Link</a>
+The backend of the project was built using Java and the Spring Boot framework. The backend provides RESTful API endpoints for the frontend to communicate with the database. Data is stored in a MySQL database.
+
+- GET /users/ - Returns a list of all users in the system.
+- GET /users/{id} - Returns the details of a specific user with the given ID.
+- POST /users/ - Creates a new user in the system.
+- PUT /users/{id} - Updates the details of a specific user with the given ID.
+- DELETE /users/{id} - Deletes the user with the given ID from the system.
+- GET /posts/ - Returns a list of all posts in the system.
+- GET /analytics/users - Returns a number of all users in the system.
+- GET /analytics/users/top-active - Returns a top 5 user who's create max posts users in the system.
+- GET /posts/{id} - Returns the details of a specific post with the given ID.
+- POST /posts/ - Creates a new post in the system.
+- PUT /posts/{id} - Updates the details of a specific post with the given ID.
+- DELETE /posts/{id} - Deletes the post with the given ID from the system.
+- POST /posts/{id}/like - Likes the post with the given ID.
+- POST /posts/{id}/unlike - Removes the like from the post with the given ID.
+- GET /posts/analytics/posts - Returns a number of all posts in the system..
+- GET /post/analytics/posts/top-liked - Returns a top 5 posts who's liked by max users in the system.
+
+## Database Schema
+<img src="https://i.ibb.co/whG2SRt/social-scema.png" alt="Database Schema"  border="0">
+
 ## Getting Started
 1. To run this application locally, you will need to have Java, MySQL, and any IDE installed on your computer.
 
