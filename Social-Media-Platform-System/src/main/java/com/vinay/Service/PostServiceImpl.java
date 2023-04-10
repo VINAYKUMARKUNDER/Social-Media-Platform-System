@@ -86,8 +86,7 @@ public class PostServiceImpl implements PostService {
 
 	@Override
 	public Long getTotalPosts() {
-		// TODO Auto-generated method stub
-		return null;
+		return postRepository.totalPost();
 	}
 
 	@Override
